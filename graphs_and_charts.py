@@ -16,8 +16,28 @@ subject= ["Math", "English", "Art", "VCD", "P.E","Science"]
 score= [80, 90, 98, 75, 66, 100]
 colours= ["red", "blue", "orange", "pink", "purple", "yellow"]
 
-plt.bar(subject,score, color= colours, edgecolor= "black")
+'''plt.bar(subject,score, color= colours, edgecolor= "black")
 plt.xlabel("Subjects")
 plt.ylabel("Mean scores")
 plt.title("Mean scores in 8K-")
+plt.show()'''
+
+#creating a Pie chart
+'''daily_activities= ["sleeping","school", "studying" , "actually studying", "guinea pigs"]
+time= [9, 6, 3, 1, 2]
+explode= [0, 0.2, 0, 0.1, 0]
+plt.pie(time, labels= daily_activities, shadow= True, startangle= 270, explode=explode)
+plt.title("Average hours spent on my daily activities")
+plt.legend()
+plt.show()'''
+
+#creating a scatter plot
+height= [150, 130, 180, 200, 120]
+weight= [50, 40, 40, 199, 45]
+colour= ["blue", "orange", "yellow", "pink", "black"]
+sizes= [100, 200, 300, 400, 500]
+
+plt.scatter(height, weight, marker= "*", c= colour, s= sizes)
+plt.xlabel("Mean height of individuals")
+plt.ylabel("Mean weight of each height of individuals")
 plt.show()
