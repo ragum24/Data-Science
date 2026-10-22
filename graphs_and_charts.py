@@ -32,7 +32,7 @@ plt.legend()
 plt.show()'''
 
 #creating a scatter plot
-height= [150, 130, 180, 200, 120]
+'''height= [150, 130, 180, 200, 120]
 weight= [50, 40, 40, 199, 45]
 colour= ["blue", "orange", "yellow", "pink", "black"]
 sizes= [100, 200, 300, 400, 500]
@@ -40,4 +40,13 @@ sizes= [100, 200, 300, 400, 500]
 plt.scatter(height, weight, marker= "*", c= colour, s= sizes)
 plt.xlabel("Mean height of individuals")
 plt.ylabel("Mean weight of each height of individuals")
+plt.grid(True)
+plt.show()'''
+
+
+#creating a histogram
+marks= [0,13,16,22,35,40,44,50,53,88,90,100]
+plt.hist(marks, bins = 5, color = "purple", alpha = 0.5, edgecolor = "purple")
+plt.grid(axis = "y", linestyle = "--")
 plt.show()
+
