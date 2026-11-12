@@ -1,35 +1,39 @@
 import pandas as pd
+# -- ALL ABOUT DATA PRE PROCESSING --
+# 1. Data cleaning - removing spaces
+# 2. Handling missing values
+# 3. Encoding - assigning a number to different data --> non-numerical data
+# 4. Feature scaling - all features as 1 unit
+# 5. Outlier remover 
+# 6. Frame, test, split - dividng data into training an testing
 
-#creating the dataframe using a dictionary
 
-#dataframe = table  :)
+# Create sample dataset (real-world messy data)
+data = {
+    "Age": [25, 30, None, 35, 40],
+    "Gender": [" Male ", "Female", "Female", " Male", None],
+    "Salary": [50000, 60000, 55000, None, 65000],
+    "Department": [" IT", "HR ", " IT", "Finance", "     HR "],
+    "Purchased": ["Yes", "No  ", "Yes", "No  ", "Yes"]
+}
 
-df = pd.DataFrame({
-    "Name":["darshika","frjncxm","Rashmi", "Niakenzie", "AAAAAA"],
-    "Age": [14, 10000, 34, 13, 8.75],
-    "Scores":[100000, 1, 99.99, 98, 23]
 
-})
+df = pd.DataFrame(data)
 print(df)
-print("a"*50)
 
-#printing a certain number of rows
-print(df.head(3))
-print("*"*50)
-#printing selective columns (selecting what columns to print)
-print(df[["Name","Scores"]])
+print("-"*200)
 
-#the shape gives the rows and column
-print(df.shape)
+#removing spaces from all the text
+text_column = df.select_dtypes(include= "object").columns
+#in data frame, string columns are considered as object type
+print(text_column)
 
-#applying numpy functions
-print(df["Age"].max())
-
-#data type of age
-print(type(df["Age"]))
-
-#getting a summary of the data frame
-print("_"*50) 
-print(df.info())
-
-print(df.describe())  #describe ONLY works wih integer values and caluculates all basic calculations needed
+for column in text_column:
+    df[column] = df[column].str.strip()
+    print("Removed spaces from ",column)
+    #column variable gets each string column one by one
+    #str is to convert from object type to string type
+    #strip fuction removes unessesary spaces before and after each value
+print("Cleaning spaces from df:")
+print(df)
+print("-"*200)
