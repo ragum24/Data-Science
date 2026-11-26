@@ -23,7 +23,7 @@ print(df)
 
 print("-"*200)
 
-#removing spaces from all the text
+# 1. removing spaces from all the text
 text_column = df.select_dtypes(include= "object").columns
 #in data frame, string columns are considered as object type
 print(text_column)
@@ -37,3 +37,24 @@ for column in text_column:
 print("Cleaning spaces from df:")
 print(df)
 print("-"*200)
+
+# 2. handling missing values
+# mean
+df["Age"] = df["Age"].fillna(df["Age"].mean())
+df["Salary"] = df["Salary"].fillna(df["Salary"].mean())
+
+# mode
+df["Gender"] = df["Gender"].fillna(df["Gender"].mode()[0])
+# [0] --> index 0 ; the value that is repeated the most in the column will get chosen and will repleace "None" value
+print("Replaced the missing values in df")
+print(df)
+
+print("-"*200)
+
+# 3. Encoding
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+df["Gender"] = le.fit_transform(df["Gender"])
+df["Purchased"] = le.fit_transform(df["Purchased"])
+print(df)
